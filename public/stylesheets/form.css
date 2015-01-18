@@ -61,6 +61,7 @@ legend {
 fieldset{
     padding-left: 50px;
     width: 90%;
+    outline: solid black 1px;
 }
 
 fieldset span{
@@ -68,7 +69,7 @@ fieldset span{
     width: 48%;
 }
 
-#gotoForm, #exitUser{
+#startPage, #exitUser, #optionsProfile, #siteMap, #fullSchedule {
     color: darkred;
     font-size: 20px;
     background-color: lightgoldenrodyellow;
