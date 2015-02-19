@@ -1,24 +1,44 @@
-// This log-out function is disabled, but ought to toggle to global id object
-// It will be available on every page in the basic layout
+$(function(){
 
-$('#exitUser').on('click', function() {
-    console.log('button works');
-});
+var person = sessionStorage.getItem('login');
 
-// HERE are the navigation buttons within the body
+if (sessionStorage.getItem("login")){
 
-$('#optionsProfile').on('click', function() {
-    window.location.href = 'http://localhost:3000/optionsProfile';
-});
+    $("#loggedID").html(person);
 
-$('#fullSchedule').on('click', function() {
-    window.location.href = 'http://localhost:3000/fullSchedule';
-});
+    $('#exitUser').on('click', function() {
 
-$('#startPage').on('click', function() {
+        $.get( "/../routes/check_login.js", function( data ) {
+            $("#loggedIN").html( data );
+            console.log( "Load was performed." );
+        });
+
+    });
+
+    // HERE are the navigation buttons within the body
+
+    $('#optionsProfile').on('click', function() {
+        window.location.href = 'http://localhost:3000/optionsProfile';
+    });
+
+    $('#fullSchedule').on('click', function() {
+        window.location.href = 'http://localhost:3000/fullSchedule';
+    });
+
+    $('#startPage').on('click', function() {
+        window.location.href = 'http://localhost:3000/startPage';
+    });
+
+    $('#siteMap').on('click', function(){
+       window.location.href = 'http://localhost:3000/siteMap';
+    });
+
+}
+
+else {
+
     window.location.href = 'http://localhost:3000/startPage';
-});
 
-$('#siteMap').on('click', function(){
-   window.location.href = 'http://localhost:3000/siteMap';
+}
+
 });

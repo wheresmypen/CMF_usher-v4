@@ -19,29 +19,28 @@ router.post('/', function(req, res) {
         if (comments.length > 0) {
             console.log("LOGGED-IN");
             comments = comments[0];
-            console.log(comments+'+++++')
-            flag="data";
-//            res.send(comments);
-//            res.send('SiteMap');
-//            res.send('data')
+            console.log(comments);
+            flag=comments;
         }
 
         else {
             console.log("does not exist");
-            console.log('dummy');
-            flag="new";
-//            res.send(dummy);
-//            return res.redirect('/siteMap');
         }
 
         res.send(flag);
+        return;
     });
 
+});
 
+router.get('/', function(req, res){
 
-
+    sessionStorage.clear();
+    res.redirect("/");
 
 });
+
+
 
 
 
