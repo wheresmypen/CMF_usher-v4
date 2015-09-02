@@ -1,5 +1,12 @@
-extends layout
+doctype html
 
-block content
-  h1= title
-  p Welcome to #{title}
+html
+
+    include ./partials/header.jade
+
+  body
+
+    #employee_list
+    button#add Add Employee
+
+    include ./partials/footer.jade
