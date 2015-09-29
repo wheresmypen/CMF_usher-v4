@@ -1,6 +1,25 @@
 $(function(){
 
 var person = sessionStorage.getItem('login');
+var employees;
+
+function getting(callback){
+    return $.ajax({
+        type: "GET",
+        url: 'http://localhost:3001/api/employee',
+        success: function(data){
+            return callback(data);
+        }
+    })
+};
+
+var employeeCallback = function(data) {
+    employees = data;
+    console.log(employees);
+};
+
+getting(employeeCallback);
+
 
 if (sessionStorage.getItem("login")){
 
